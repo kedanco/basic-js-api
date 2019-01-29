@@ -9,5 +9,29 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 		<script src="main.js"></script>
 	</head>
-	<body></body>
+	<body>
+
+		<div id="content">
+			<h2 id="title">Basic API Project</h2>
+			<div id="stories">
+
+			</div>
+		</div>
+	</body>
 </html>
+
+<script type="text/javascript">
+	const SG_API_KEY = "a5d7e1956fe44f7b94df846ee907488a";
+	let url = `https://newsapi.org/v2/top-headlines?country=sg&apiKey=${SG_API_KEY}`;
+
+	let stories = fetch(url)
+		.then(res => {
+			return res.json();
+		})
+		.then(data => {
+			console.log(data);
+		})
+		.catch(error => {
+			console.log(error);
+		});
+</script>
