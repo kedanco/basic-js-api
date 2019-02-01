@@ -1,4 +1,3 @@
-<!-- Starting a basic site.. let's get the HTML and CSS down first before impl -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,5 +8,72 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 		<script src="main.js"></script>
 	</head>
-	<body></body>
+	<body>
+		<div id="content">
+			<h2 id="title">Basic API Project</h2>
+			<h4 id="description">Displaying Singapore's top headlines.</h4>
+			<div id="storyList"></div>
+		</div>
+
+		<div id="footer">
+			<a href="www.github.com/kedanco">Kedanco</a>
+			<a href="www.github.com/SALTx">SALTx</a>
+		</div>
+	</body>
 </html>
+
+<script type="text/javascript">
+	// document.addEventListener("DOMContentLoaded", function() {
+	// 	document.querySelector("#loading").innerText = "";
+	// });
+
+	const SG_API_KEY = "a5d7e1956fe44f7b94df846ee907488a";
+	let url = `https://newsapi.org/v2/top-headlines?country=sg&apiKey=${SG_API_KEY}`;
+
+	let stories = fetch(url)
+		.then(res => {
+			return res.json();
+		})
+		.then(data => {
+			console.log(data);
+			let articles = data.articles;
+
+			let selectedStory = articles[Math.floor(Math.random() * articles.length)];
+
+			let storyList = document.querySelector("#storyList");
+
+			for (let i = 0; i < articles.length; i++) {
+				let selectedStory = articles[i];
+				let dt = new Date(selectedStory.publishedAt);
+
+				let author =
+					selectedStory.author === null ? "Unknown" : selectedStory.author;
+
+				let storyHTML = `
+					<div id="story-${i}" class="story-container">  
+						<a href="${selectedStory.url}"><h2 class="story-title">${
+					selectedStory.title
+				}</h2></a>
+					<div class="story-header">
+						<i>
+						<h3 class="story-author"><b>Author:</b> ${author}</h3>
+						<h4 class="story-date"><b>Published At:</b> ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()}</h4>
+						</i>
+					</div>
+					<div class="story-body">
+						<img src="${selectedStory.urlToImage}" alt="" class="story-image" />
+						<p class="story-text">${selectedStory.content}</p>
+					</div>
+					<div class="story-footer"><p class="story-source"><i>${
+						selectedStory.source.name
+					}</i></p></div>
+				</div>
+				`;
+
+				storyList.innerHTML += storyHTML;
+			}
+		})
+		.catch(error => {
+			console.log(error);
+		});
+</script>
