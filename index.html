@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>JS API Project</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-		<script src="main.js"></script>
-	</head>
-	<body>
-		<div id="content">
-			<h2 id="title">Basic API Project</h2>
-			<h4 id="description">Displaying Singapore's top headlines.</h4>
-			<div id="storyList"></div>
-		</div>
 
-		<div id="footer">
-			<a href="www.github.com/kedanco">Kedanco</a>
-			<a href="www.github.com/SALTx">SALTx</a>
-		</div>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JS API Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Random Quote Generator</h1>
+    </header>
+    <div class="card"></div>
+    <button type="button" class="new-quote" aria-label="load new quote" title="New Quote">
+        <span class="fa fa-redo-alt fa-2x"></span>
+    </button>
+    <script src="quote.js"></script>
+
+    <div id="content">
+        <h2 id="title">Basic API Project</h2>
+        <h4 id="description">Displaying Singapore's top headlines.</h4>
+        <div id="storyList"></div>
+    </div>
+
+    <div id="footer">
+        <a href="https://www.github.com/kedanco">Kedanco</a>
+        <a href="https://www.github.com/SALTx">SALTx</a>
+    </div>
+</body>
+
 </html>
 
 <script type="text/javascript">
-	// document.addEventListener("DOMContentLoaded", function() {
-	// 	document.querySelector("#loading").innerText = "";
-	// });
+    // document.addEventListener("DOMContentLoaded", function() {
+    // 	document.querySelector("#loading").innerText = "";
+    // });
 
-	const SG_API_KEY = "a5d7e1956fe44f7b94df846ee907488a";
-	let url = `https://newsapi.org/v2/top-headlines?country=sg&apiKey=${SG_API_KEY}`;
+    const SG_API_KEY = "a5d7e1956fe44f7b94df846ee907488a";
+    let url = `https://newsapi.org/v2/top-headlines?country=sg&apiKey=${SG_API_KEY}`;
 
-	let stories = fetch(url)
-		.then(res => {
-			return res.json();
-		})
-		.then(data => {
-			console.log(data);
-			let articles = data.articles;
+    let stories = fetch(url)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            let articles = data.articles;
 
-			let selectedStory = articles[Math.floor(Math.random() * articles.length)];
+            let selectedStory = articles[Math.floor(Math.random() * articles.length)];
 
-			let storyList = document.querySelector("#storyList");
+            let storyList = document.querySelector("#storyList");
 
-			for (let i = 0; i < articles.length; i++) {
-				let selectedStory = articles[i];
-				let dt = new Date(selectedStory.publishedAt);
+            for (let i = 0; i < articles.length; i++) {
+                let selectedStory = articles[i];
+                let dt = new Date(selectedStory.publishedAt);
 
-				let author =
-					selectedStory.author === null ? "Unknown" : selectedStory.author;
+                let author =
+                    selectedStory.author === null ? "Unknown" : selectedStory.author;
 
-				let storyHTML = `
+                let storyHTML = `
 					<div id="story-${i}" class="story-container">  
 						<a href="${selectedStory.url}"><h2 class="story-title">${
 					selectedStory.title
@@ -70,10 +83,11 @@
 				</div>
 				`;
 
-				storyList.innerHTML += storyHTML;
-			}
-		})
-		.catch(error => {
-			console.log(error);
-		});
+                storyList.innerHTML += storyHTML;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
 </script>
