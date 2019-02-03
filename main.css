@@ -1,74 +1,150 @@
 html {
-	box-sizing: border-box;
-	font-size: 10px;
-	margin: 0px auto;
-	height: 100vh;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+    font-size: 10px;
+    margin: 0px auto;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 a,
 a:visited {
-	color: #222;
-	text-decoration: none;
+    color: #222;
+    text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
-	cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #content {
-	margin: 50px auto;
+    margin: 50px auto;
 }
 
 #title {
-	font-size: 3em;
+    font-size: 3em;
 }
 
 #description {
-	font-size: 1.8em;
-	font-family: Arial, Helvetica, sans-serif;
-	color: #555;
+    font-size: 1.8em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
 }
 
 .story-container {
-	margin: 20px;
-	background-color: #ddd;
-	border-radius: 5px;
-	padding: 20px;
+    margin: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .story-title {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 .story-header {
-	width: 100%;
+    width: 100%;
 }
 
 .story-header,
 .story-author,
 .story-date {
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 1.1em;
-	display: inline-block;
-	font-weight: 300;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1em;
+    display: inline-block;
+    font-weight: 300;
 }
 
 .story-date {
-	float: right;
+    float: right;
 }
 
 .story-image {
-	width: 100%;
+    width: 100%;
 }
 
 .story-text {
-	font-size: 1.5em;
-	color: #444;
+    font-size: 1.5em;
+    color: #444;
 }
 
 .story-source {
-	font-size: 1.3em;
+    font-size: 1.3em;
+}
+
+*:focus {
+    box-shadow: 0 0 4px 4px rgba(65, 180, 250, 0.8);
+    outline: none;
+}
+
+h1 {
+    color: #0b6b74;
+    font-family: Roboto, arial, sans-serif, monospace;
+    font-size: 1.7em;
+    font-weight: 900;
+    letter-spacing: 4px;
+    padding-top: 6%;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+
+.card {
+    background: #bef5fa;
+    background: linear-gradient(#bef5fa, #e7fbfd) fixed;
+    border-radius: 10px;
+    margin: 1em auto;
+    max-width: 700px;
+    padding: 2em;
+}
+
+.quote {
+    color: #5C2266;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+.source {
+    color: black;
+    font-style: italic;
+    line-height: 20px;
+    margin: 1em 0;
+}
+
+.tweet-button {
+    text-align: right;
+}
+
+.tweet,
+.tweet:visited,
+.tweet:active,
+.tweet:focus {
+    background: #0e818b;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.8em;
+    text-decoration: none;
+    padding: 0.5em;
+    font-size: 1.1em;
+}
+
+.tweet:hover {
+    background: #0b6b74;
+    text-decoration: underline;
+}
+
+.new-quote,
+.new-quote:active,
+.new-quote:focus {
+    background: #0e818b;
+    border-radius: 100%;
+    color: #fff;
+    margin: 1em 0 0 auto;
+    padding: 0.9em;    
+}
+
+.new-quote:hover {
+    background: #0b6b74;
 }

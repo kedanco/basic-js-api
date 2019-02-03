@@ -10,7 +10,7 @@
 - [x] Setup basic HTML structure
 - [x] Implement News API (newsapi.org)
 - [ ] Implement Accordion toggle on stories retrieved
-- [ ] Implement Random Quotes or Image API
+- [x] Implement Random Quotes or Image API
 - [ ] Add word counter underneath each story
 - [ ] Add CSS
 - [ ] Add CSS Animations
